@@ -5,8 +5,14 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitReturns": true,
+    "paths": {
+      "eris-login": [
+        "dist/eris-login/eris-login",
+        "dist/eris-login"
+      ]
+    },
+    "strict": false,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

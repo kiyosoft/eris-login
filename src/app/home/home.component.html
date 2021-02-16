@@ -1,0 +1,28 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<nav class="bg-gray-800 flex items-center justify-center h-screen w-screen">
+
+
+  <!--
+    Mobile menu, toggle classes based on menu state.
+
+    Menu open: "block", Menu closed: "hidden"
+  -->
+  <div>
+    <button
+      (click)="login()"
+      class="px-6 py-2 my-2 bg-gray-50 text-green-600 focus:outline-none shadow-md focus:ring-1 ring-green-100">
+      <img class="w-11 h-5 inline mx-3 pb-0.5" src="../../assets/eRIS_logo_final.png" alt="">
+      <p class="inline font-bold mx-3">Login</p>
+    </button>
+
+
+    <button
+      (click)="getUser()"
+      class="block px-6 py-2 my-2 bg-gray-50 text-green-600 focus:outline-none shadow-md focus:ring-1 ring-green-100">
+      <p class="inline font-bold mx-3">User detail</p>
+    </button>
+
+    <p class="text-white w-screen">User detail : {{user}}</p>
+  </div>
+
+</nav>
