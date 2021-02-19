@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ErisLoginService} from './eris-login.service';
+import {User} from 'oidc-client';
 
 @Component({
   selector: 'lib-eris-login',
@@ -11,7 +12,14 @@ export class ErisLoginComponent implements OnInit {
   user: string;
 
   constructor(private erisLoginService: ErisLoginService) {
-    erisLoginService.getUser().subscribe(user => this.user = JSON.stringify(user));
+    erisLoginService.getUser().subscribe(async user => {
+      if (user instanceof User) {
+        this.user = JSON.stringify(user);
+      } else {
+        this.user = 'User is not signed in';
+        await this.login();
+      }
+    });
   }
 
   async login(): Promise<any> {
